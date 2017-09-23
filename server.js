@@ -1,6 +1,8 @@
 const express = require('express');
 const hbs = require('hbs');
 
+const port = process.env.PORT || 3000;
+
 
 var app = express();
 app.set('View Engine', 'hbs');
@@ -22,8 +24,8 @@ res.render('maint.hbs');
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(3000, ()=>{
-  console.log("server is running on port 3000");
+app.listen(port, ()=>{
+  console.log(`Server is up and running on port ${port} `);
 });
 
 hbs.registerPartials(__dirname + '/views/partials');
